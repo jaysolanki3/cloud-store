@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "993390941916",
+    "firebase_url": "https://cloud-store-fb75b-default-rtdb.firebaseio.com",
+    "project_id": "cloud-store-fb75b",
+    "storage_bucket": "cloud-store-fb75b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:993390941916:android:fd0c1ed255d3d773a58619",
+        "android_client_info": {
+          "package_name": "com.example.cloudstore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjSAiAGFCNXxYRxDZyn0uUfCkrw1CR_Yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        android:weightSum="4"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Hello World!"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_weight="4"/>
+
+        <Button
+            android:id="@+id/logOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#333333"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Log out"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="14dp"
+            app:cornerRadius="8dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/media"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:weightSum="4"
+        android:gravity="center"
+        android:layout_below="@+id/info">
+
+        <Button
+            android:id="@+id/selectFile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#333333"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Select File"
+            android:textColor="#FFFFFF"
+            android:textColorLink="#FFFFFF"
+            android:textSize="14dp"
+            app:cornerRadius="8dp" />
+
+        <TextView
+            android:id="@+id/fileLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Hello World!"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="4"/>
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroupVisibility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/media"
+        android:layout_marginTop="20dp">
+
+        <!-- Radio Button for "Is Public" -->
+        <RadioButton
+            android:id="@+id/radioPublic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is Public"
+            android:checked="true" /> <!-- Default selected -->
+
+        <!-- Radio Button for "Is Private" -->
+        <RadioButton
+            android:id="@+id/radioPrivate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Is Private" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/uploadFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#333333"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Upload File"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="14dp"
+        app:cornerRadius="8dp"
+        android:layout_below="@+id/radioGroupVisibility"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+
+    <Button
+        android:id="@+id/fetchUploadedFile"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:backgroundTint="#333333"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Shared Documents"
+        android:textColor="#FFFFFF"
+        android:textColorLink="#FFFFFF"
+        android:textSize="14dp"
+        app:cornerRadius="8dp"
+        android:layout_below="@+id/uploadFile"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"/>
+
+</RelativeLayout>
