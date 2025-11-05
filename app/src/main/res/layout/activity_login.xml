@@ -124,6 +124,23 @@ tools:context=".LoginActivity">
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <TextView
+        android:id="@+id/errortext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Error Text"
+        android:textColor="#FF0000"
+        android:textSize="17dp"
+        android:gravity="start"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
+
     <Button
         android:id="@+id/signup"
         android:layout_width="match_parent"
@@ -140,7 +157,7 @@ tools:context=".LoginActivity">
         app:cornerRadius="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/errortext" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

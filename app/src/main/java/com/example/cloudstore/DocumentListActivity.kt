@@ -1,10 +1,12 @@
 package com.example.cloudstore
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -28,6 +30,7 @@ class DocumentListActivity : AppCompatActivity() {
     lateinit var reference: DatabaseReference
     lateinit var pref : SharedPreferences
     private lateinit var fileList: ArrayList<DocumentData>
+    private lateinit var progressDialog: ProgressDialog
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,11 +44,16 @@ class DocumentListActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        progressDialog = ProgressDialog(this).apply {
+            setMessage("Loading...")
+            setCancelable(false)
+        }
         fileList = ArrayList()
         fetchData()
     }
 
     private fun fetchData(){
+        progressDialog.show()
         val postListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 fileList.clear()
@@ -61,13 +69,22 @@ class DocumentListActivity : AppCompatActivity() {
                         }
                     }
                 }
-                val adapter = FileAdapter(this@DocumentListActivity, fileList)
-                binding.fileList.layoutManager = LinearLayoutManager(this@DocumentListActivity)
-                binding.fileList.adapter = adapter
+                progressDialog.dismiss()
+                if(fileList.isEmpty()){
+                    binding.fileList.visibility = View.GONE
+                    binding.noDataFound.visibility = View.VISIBLE
+                }else{
+                    val adapter = FileAdapter(this@DocumentListActivity, fileList)
+                    binding.fileList.layoutManager = LinearLayoutManager(this@DocumentListActivity)
+                    binding.fileList.adapter = adapter
+                    binding.fileList.visibility = View.VISIBLE
+                    binding.noDataFound.visibility = View.GONE
+                }
                 Log.w("TAG", "loadPost:onCancelled")
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
+                progressDialog.dismiss()
                 Log.w("TAG", "loadPost:onCancelled", databaseError.toException())
             }
         }

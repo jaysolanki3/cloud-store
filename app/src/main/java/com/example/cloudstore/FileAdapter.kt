@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -48,6 +49,7 @@ class FileAdapter(private val context: Context, private val fileList: List<Docum
                 }
             }
         }
+        holder.uploaderName.text = "Uploaded by ${fileData.uploadedBy}"
 
         // You can add more logic to handle other file types or UI updates
     }
@@ -60,5 +62,6 @@ class FileAdapter(private val context: Context, private val fileList: List<Docum
         val imageView: ImageView = binding.tileImage
         val playIcon: ImageView = binding.playIcon
         val videoView: VideoView = binding.tileVideo
+        val uploaderName: TextView = binding.uploaderName
     }
 }
